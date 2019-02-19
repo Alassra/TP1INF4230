@@ -1,0 +1,34 @@
+Plan  { 
+Sud = Lieu 0-0 -> Lieu 1-0); 
+Sud = Lieu 1-0 -> Lieu 2-0); 
+Sud = Lieu 2-0 -> Lieu 3-0); 
+est = Lieu 3-0 -> Lieu 3-1); 
+Sud = Lieu 3-1 -> Lieu 4-1); 
+est = Lieu 4-1 -> Lieu 4-2); 
+est = Lieu 4-2 -> Lieu 4-3); 
+Nord = Lieu 4-3 -> Lieu 3-3); 
+Nord = Lieu 3-3 -> Lieu 2-3); 
+est = Lieu 2-3 -> Lieu 2-4); 
+est = Lieu 2-4 -> Lieu 2-5); 
+est = Lieu 2-5 -> Lieu 2-6); 
+est = Lieu 2-6 -> Lieu 2-7); 
+est = Lieu 2-7 -> Lieu 2-8); 
+Nord = Lieu 2-8 -> Lieu 1-8); 
+est = Lieu 1-8 -> Lieu 1-9); 
+est = Lieu 1-9 -> Lieu 1-10); 
+Charger(); 
+Ouest = Lieu 1-10 -> Lieu 1-9); 
+Ouest = Lieu 1-9 -> Lieu 1-8); 
+Sud = Lieu 1-8 -> Lieu 2-8); 
+Ouest = Lieu 2-8 -> Lieu 2-7); 
+Ouest = Lieu 2-7 -> Lieu 2-6); 
+Ouest = Lieu 2-6 -> Lieu 2-5); 
+Ouest = Lieu 2-5 -> Lieu 2-4); 
+Ouest = Lieu 2-4 -> Lieu 2-3); 
+Sud = Lieu 2-3 -> Lieu 3-3); 
+Sud = Lieu 3-3 -> Lieu 4-3); 
+Ouest = Lieu 4-3 -> Lieu 4-2); 
+Ouest = Lieu 4-2 -> Lieu 4-1); 
+Ouest = Lieu 4-1 -> Lieu 4-0); 
+Decharger(); 
+}
