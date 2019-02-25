@@ -14,6 +14,7 @@ public class HeuristiqueSimple extends Heuristique {
 			double delta = e.positionGeographique.distance(etat.emplacementAmbulance.positionGeographique);
 			min = Math.min(min, delta);
 		}
+		min = Math.min(min, etat.emplacementHopital.positionGeographique.distance(etat.emplacementAmbulance.positionGeographique));
 		return min;
 	}
 }
