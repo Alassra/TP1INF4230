@@ -68,13 +68,20 @@ public class AStar {
         while(!open.isEmpty()) {
         	double coutMinimal = Double.MAX_VALUE;
         	
-        	for (Etat e : open) {
+        	for (Etat e : checkOpen) {
         		if (e.f < coutMinimal) {
         			etatCoutMinimal = e;
         			coutMinimal = e.f;
         		}
         	}
-        	open.remove(etatCoutMinimal);
+        	List<Etat> etatsAEnlever = new LinkedList<>();
+        	for (Etat e : open) {
+        		if (e.compareTo(etatCoutMinimal) == 0) {
+        			etatsAEnlever.add(e);
+        		}
+        	}
+        	open.removeAll(etatsAEnlever);
+        	checkOpen.removeAll(etatsAEnlever);
         	closed.add(etatCoutMinimal);
         	if (but.butEstStatisfait(etatCoutMinimal)) {
         		break;
@@ -84,7 +91,7 @@ public class AStar {
         	
         	for (Successeur s: successeurs) {
         		s.etat.g += s.cout;
-        		s.etat.h = heuristique.estimerCoutRestantManhattan(s.etat, but);
+        		s.etat.h = heuristique.estimerCoutRestant(s.etat, but);
         		s.etat.f = s.etat.g + s.etat.h;
         		boolean presentClosed = false;
         		for (Etat e : closed) {
@@ -93,19 +100,8 @@ public class AStar {
         			}
         		}
 				if (!presentClosed) {
-					boolean aRajouter = true;
-					if (!open.isEmpty()) {
-						for (Etat e : open) {
-							if (e.compareTo(s.etat) == 0) {
-								if (e.f < s.etat.f) {
-									aRajouter = false;
-								}
-							}
-						}
-					}
-					if (aRajouter) {
-						open.add(s.etat);
-					}
+					checkOpen.add(s.etat);
+					open.add(s.etat);
 				}
         	}
         }
